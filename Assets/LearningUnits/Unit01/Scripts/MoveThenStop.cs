@@ -16,17 +16,19 @@ public class MoveThenStop : MonoBehaviour
     {
         moveDirection = new Vector3(.01f, 0, 0);
         destination = transform.position + new Vector3(10, 0, 0);
+
+        transform.Translate(moveDirection);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(moveDirection);
-        
+
         if (Vector3.Distance(transform.position, destination) < .1f)
         {
+            return;
         }
 
-        return;
+        transform.Translate(moveDirection);
     }
 }
